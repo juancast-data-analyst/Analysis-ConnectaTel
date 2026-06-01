@@ -1,115 +1,102 @@
-# Analysis--ConnectaTel – Sprint 7
+# ConnectaTel – Análisis de Comportamiento de Clientes - Proyecto Sprint 7
 
-Este repositorio contiene el análisis completo realizado durante el Sprint 7 del caso ConnectaTel, empresa de telecomunicaciones en Latinoamérica.
-El proyecto trabaja con tres datasets (plans.csv, users.csv, usage.csv) que incluyen información de 4,000 clientes y 40,000 registros de uso del año 2024, con valores faltantes, centinelas, outliers y problemas de calidad diseñados para simular datos reales del sector telecomunicaciones.
+Este repositorio contiene el análisis realizado durante el Sprint 7 del proyecto ConnectaTel, una empresa de telecomunicaciones con operaciones en México y Colombia.
+
+Los datasets `plans`, `users_latam` y `usage` incluyen información de **4,000 clientes** y **40,000 registros de uso** (llamadas y mensajes) del año 2024, con valores faltantes, sentinels, outliers y problemas de calidad diseñados para simular datos reales del sector telecomunicaciones.
+
+---
 
 ## 📂 Contenido del repositorio
-📦 connectatel-analysis/
-├── 📓 notebooks/
-│   └── S7_Project-ConnectaTel.ipynb  → Notebook principal con carga, limpieza, EDA, segmentación y análisis ejecutivo
-├── 📊 data/
-│   ├── plans.csv           → Catálogo de planes (Básico y Premium)
-│   ├── users.csv           → Información de 4,000 clientes
-│   └── usage.csv           → 40,000 registros de uso (llamadas, mensajes, datos)
-├── 📄 outputs/
-│   └── Analisis_Ejecutivo_ConnectaTel.md  → Reporte ejecutivo con insights y recomendaciones
-└── 📖 README.md            → Este archivo
+
+- `notebooks/S7_Project-ConnectaTel.ipynb`
+  → Notebook principal con carga de datos, limpieza, estadísticas descriptivas, detección de outliers, segmentación de clientes y conclusiones ejecutivas.
+
+- `data/plans.csv`
+  → Catálogo de planes (precio mensual, minutos incluidos, GB, costos por excedente).
+
+- `data/users_latam.csv`
+  → Información de clientes: edad, ciudad, fecha de registro, plan contratado y fecha de churn.
+
+- `data/usage.csv`
+  → Detalle de uso real: llamadas (duración en minutos) y mensajes (longitud en caracteres).
+
+---
 
 ## ▶️ Cómo abrir el notebook en Google Colab
-Haz clic en el siguiente botón:
-Mostrar imagen
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](S7_Project_ConnectaTel.ipynb)
+Haz clic en el siguiente botón:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/juancast-data-analyst/Analysis-ConnectaTel/blob/main/S7_Project_ConnectaTel.ipynb)
 
 O manualmente:
 
-Abre el archivo S7_Project-ConnectaTel.ipynb en GitHub
-Haz clic en Open in Colab (botón superior)
-Ejecuta las celdas en orden secuencial
+1. Abre el archivo `.ipynb` en GitHub
+2. Haz clic en **Open in Colab**
 
+---
 
 ## 📘 Cómo reproducir el análisis
-Google Colab (recomendado)
 
-Haz clic en el badge de Colab arriba
-Ejecuta todas las celdas: Runtime > Run all
-Los datasets se cargan automáticamente desde la carpeta /data/
+1. Abre `notebooks/S7_Project-ConnectaTel.ipynb` en Google Colab o Jupyter
+2. Sube los tres archivos CSV a la carpeta `/datasets/` (o ajusta las rutas según tu entorno)
+3. Ejecuta las celdas en orden de arriba hacia abajo
+4. El notebook está estructurado en 8 pasos secuenciales; cada uno tiene instrucciones y celdas de validación
 
+---
 
-## 🧠 Objetivo del análisis
-Como analista de datos en ConnectaTel, el objetivo es evaluar el comportamiento de los clientes para:
+## 🧠 Objetivos
 
-✅ Identificar problemas de calidad de datos (centinelas, nulos, fechas inválidas)
-✅ Construir un perfil estadístico del uso (llamadas y mensajes) por cliente y por segmentos demográficos.
-✅ Segmentar clientes por edad y nivel de uso para personalización de ofertas
-✅ Detectar outliers y patrones de uso extremo (power users)
-✅ Analizar y Visualizar distribuciones de llamadas, mensajes y minutos consumidos
-✅ Generar insights accionables para el equipo de Marketing y Producto
+### Objetivo del análisis
 
+Evaluar el comportamiento de los clientes de ConnectaTel para identificar patrones de uso, detectar comportamientos atípicos y comprender qué segmentos muestran necesidades diferenciadas, con el fin de optimizar la oferta comercial y mejorar la experiencia del usuario.
 
-## 🛠️ Tecnologías utilizadas
+## Objetivo del análisis
 
-Python 3.x
-Pandas → Manipulación y limpieza de datos
-NumPy → Cálculos numéricos y estadísticas
-Matplotlib & Seaborn → Visualizaciones (histogramas, boxplots, gráficos de barras)
-Jupyter Notebook → Entorno de desarrollo interactivo
+- Integrar y limpiar datos provenientes de tres fuentes distintas
+- Detectar problemas de calidad: nulos, sentinels, fechas fuera de rango y tipos incorrectos
+- Construir un perfil estadístico del uso (llamadas y mensajes) por cliente y por segmentos demográficos
+- Identificar outliers y comportamientos atípicos mediante métodos estadísticos y visuales
+- Segmentar clientes por edad, país y nivel de consumo
+- Generar insights y recomendaciones comerciales accionables para el equipo de ConnectaTel
 
+---
 
-## 📈 Estructura del análisis
-El notebook sigue un flujo estructurado en 8 pasos:
+## 🛠️ Herramientas utilizadas
 
-### 🧩 Carga y exploración inicial
+- Python 3.9
+- `pandas` · `numpy` · `matplotlib` · `seaborn`
+- Jupyter Notebook / Google Colab
+  
+---
 
-Importación de 3 datasets
-Revisión de estructura (.shape, .info(), .head())
+## 📊 Etapas del análisis
 
+| Paso | Descripción |
+|------|-------------|
+| 1 | Carga y exploración de los 3 datasets |
+| 2 | Identificación de problemas de calidad de datos |
+| 3 | Limpieza: sentinels, fechas, nulos e imputación |
+| 4 | Estadísticas descriptivas por variable |
+| 5 | Visualización: histogramas y boxplots |
+| 6 | Segmentación por edad, país y nivel de uso |
+| 7 | Conclusiones e insights ejecutivos |
+| 8 | Publicación del notebook y README en GitHub |
 
-### ⚠️ Identificación de problemas de calidad
+---
 
-Detección de nulos, centinelas y valores inválidos
-Análisis de fechas fuera de rango
+## 💡 Principales hallazgos
 
+- El **73.6% de los usuarios** tiene un perfil de uso medio, sin un plan adecuado para sus necesidades reales
+- Solo el **19% de la base** corresponde a clientes menores de 30 años, lo que representa una oportunidad de captación
+- Se detectaron **~150 usuarios con comportamiento atípico** (alto consumo fuera de rango normal) con alto riesgo de churn
+- Los datos sucios ocultaban que la edad promedio real del cliente es **13 años mayor** que lo registrado inicialmente
 
-### 🧹 Limpieza de datos
-
-Reemplazo de centinelas (-999, "?")
-Corrección de fechas imposibles
-Justificación de nulos MAR
-
-
-### 📊 Estadísticas agregadas por usuario
-
-Resumen de uso: mensajes, llamadas, minutos
-Creación de tabla user_profile
-
-
-### 📉 Visualización de distribuciones
-
-Histogramas por edad y uso
-Identificación de patrones y asimetrías
-
-
-### 🔍 Detección de outliers
-
-Método IQR (Rango Intercuartílico)
-Decisión: mantener outliers de negocio
-
-
-### 🎯 Segmentación de clientes
-
-Por nivel de uso (Bajo/Medio/Alto)
-Por edad (Joven/Adulto/Adulto Mayor)
-
-
-### 📝 Análisis ejecutivo
-
-Insights accionables
-Recomendaciones priorizadas
-
+---
 👤 Autor
 Juan Castelblanco - Analista de Datos - ConnectaTel
 Sprint 7 - Análisis de Comportamiento de Clientes 2024
 
 📝 Licencia
 Este proyecto es de uso educativo y forma parte del programa de análisis de datos.
+
+*Fecha de análisis: Febrero 2026 | ConnectaTel Data Analytics Team*
