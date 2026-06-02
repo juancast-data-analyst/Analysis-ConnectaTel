@@ -94,9 +94,7 @@ Evaluar el comportamiento de los clientes de ConnectaTel para identificar patron
 ---
 👤 Autor
 Juan Castelblanco - Analista de Datos - ConnectaTel
-Sprint 7 - Análisis de Comportamiento de Clientes 2024
 
 📝 Licencia
 Este proyecto es de uso educativo y forma parte del programa de análisis de datos.
 
-*Fecha de análisis: Febrero 2026 | ConnectaTel Data Analytics Team*
